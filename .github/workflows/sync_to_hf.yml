@@ -11,11 +11,11 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          lfs: true
-          
-      - name: Push to Hugging Face
+        
+      - name: Install Hugging Face Hub
+        run: pip install huggingface_hub
+        
+      - name: Push via HF CLI
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://SujalDixit1927:$HF_TOKEN@huggingface.co/spaces/SujalDixit1927/Deepfake-Detection-System main
+        run: huggingface-cli upload SujalDixit1927/Deepfake-Detection-System . . --repo-type space --token $HF_TOKEN
