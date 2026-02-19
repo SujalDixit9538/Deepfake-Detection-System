@@ -214,5 +214,4 @@ dataset/
 *.tar.gz
 
 # Ignore saved model weights
-*.keras
 *.h5
