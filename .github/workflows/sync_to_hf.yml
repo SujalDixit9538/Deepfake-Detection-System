@@ -19,10 +19,22 @@ jobs:
         with:
           python-version: '3.10'
           
-      - name: Install Hugging Face CLI
-        run: pip install -U "huggingface_hub[cli]"
+      - name: Install Hugging Face Hub
+        run: pip install huggingface_hub
         
-      - name: Push via HF CLI
+      - name: Push via Python API
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: huggingface-cli upload SujalDixit1927/Deepfake-Detection-System . . --repo-type space --token $HF_TOKEN
+        run: |
+          python -c "
+          import os
+          from huggingface_hub import HfApi
+          api = HfApi()
+          api.upload_folder(
+              folder_path='.',
+              repo_id='SujalDixit1927/Deepfake-Detection-System',
+              repo_type='space',
+              token=os.environ.get('HF_TOKEN'),
+              ignore_patterns=['.git/*', '.github/*']
+          )
+          "
