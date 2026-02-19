@@ -1,3 +1,13 @@
+---
+title: Deepfake Detection System
+emoji: 🕵️‍♂️
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+app_file: app.py
+pinned: false
+---
+
 # 🕵️‍♂️ Deepfake Detection System
 
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Live%20Demo-Hugging%20Face-blue)](https://huggingface.co/spaces/SujalDixit1927/Deepfake-Detection-System)
